@@ -1,15 +1,16 @@
 <?php
 
-function array_is_subset($superset, $subset)
-{
-    if (count($superset) < count($subset)) {
-        return false;
+function array_is_subset( $superset, $subset) {
+    if (count($superset)<count($subset))
+    {
+        return FALSE;
     }
 
     $candidates = $superset;
     $found = 0;
 
-    foreach ($subset as $elem) {
+    foreach($subset as $elem)
+    {
         // the candidates array is empty then we're done
         if (empty($candidates)) {
             break;
@@ -17,7 +18,7 @@ function array_is_subset($superset, $subset)
 
         $foundAt = null;
         $attributes = array_keys($elem);
-        foreach ($candidates as $key => $candidate) {
+        foreach ($candidates as $key=>$candidate) {
             $candidateAttributes = array_keys($candidate);
             if (array_intersect($attributes, $candidateAttributes) != $attributes) {
                 continue;
